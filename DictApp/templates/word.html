@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dictionary App</title>
+  <link rel="stylesheet" href="{% static 'css/main.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Oswald:wght@200;500&display=swap" rel="stylesheet">
+  
+</head>
+
+
+
+<body>
+
+  <header>
+    <h1 class="font" style="color: black;">DICTIONARY APP</h1>
+  </header>
+
+  <div class="container">
+    <form action="word" id="search-form">
+      <input type="text" name="search" id="search-input" placeholder="Enter a word...">
+      <div>
+        <button type="submit" id="search-button">Search
+        <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </div>
+    </form>
+    <h3 class="word-header">{{word}} </h3>
+
+      {% if formatted_meaning %}
+        {% for part_of_speech, formatted_definitions in formatted_meaning.items %}
+          <h1>{{part_of_speech}}</h4>
+          <p>{{formatted_definitions|safe}}</p>
+        {% endfor %}
+      {% else %}
+          <p>No meaning found for the word.</p>
+      {% endif %}
+  
+   
+  
+
+</body>
+
+</html>
