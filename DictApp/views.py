@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from PyDictionary import PyDictionary
+from PyDictionary import PyDictionary as PyD
 
 # Create your views here.
 def index(request):
@@ -7,10 +7,9 @@ def index(request):
 
 def word(request):
     search = request.GET.get('search')
-    dictionary = PyDictionary()
-    meaning = dictionary.meaning(search)
-    synonyms = dictionary.synonym(search)
-    antonyms = dictionary.antonym(search)
+    meaning = PyD.meaning(search)
+    synonyms = PyD.synonym(search)
+    antonyms = PyD.antonym(search)
 
     
 
